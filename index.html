@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#100d20">
+  <meta name="description" content="هدية صغيرة لقلب كبير… كل سنة وإنتِ أجمل حاجة في حياتي يا سلمى.">
+  <title>لسلمى، بكل الحب ✦</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500;1,600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
+  <script defer src="js/main.js"></script>
+</head>
+<body>
+  <div class="grain" aria-hidden="true"></div>
+  <div class="scroll-progress" aria-hidden="true"><span id="progressBar"></span></div>
+  <div class="ambient" id="ambient" aria-hidden="true"></div>
+  <div class="cursor-spark" id="cursorSpark" aria-hidden="true"></div>
+
+  <div class="prelude" id="prelude" role="dialog" aria-label="مفاجأة لسلمى">
+    <div class="prelude-orbit" aria-hidden="true"><span>✦</span><span>✧</span><span>·</span></div>
+    <div class="gift" aria-hidden="true"><span class="gift-bow">♡</span><span class="gift-box">✦</span></div>
+    <p class="prelude-kicker" data-ar="عملتلك حاجة صغيرة يا حبيبتي" data-en="I made you a little something, my love">عملتلك حاجة صغيرة يا حبيبتي</p>
+    <h1 data-ar="في حاجة حلوة مستنياكي يا سلمى…" data-en="Something special is waiting for you, Salma…">في حاجة حلوة مستنياكي يا سلمى…</h1>
+    <button class="open-gift" id="openGift"><span data-ar="دوسي هنا يا أحلى أخت" data-en="Tap here, my favorite person">دوسي هنا يا أحلى أخت</span><b>↗</b></button>
+    <span class="prelude-note" data-ar="خدي نفس… دي معمولة بحب" data-en="Take a breath… this was made with love">خدي نفس… دي معمولة بحب</span>
+  </div>
+
+  <header class="topbar">
+    <a href="#home" class="wordmark" aria-label="لسلمى، بكل الحب"><span class="wordmark-heart">♡</span> <span data-ar="لسلمى، بكل الحب" data-en="For Salma, with love">لسلمى، بكل الحب</span></a>
+    <div class="top-actions">
+      <button class="language-toggle" id="languageToggle" aria-label="Switch language">EN</button>
+      <button class="music-toggle" id="musicToggle" aria-label="تشغيل الموسيقى" title="الموسيقى"><span class="music-icon">♫</span><span class="music-label" data-ar="موسيقى" data-en="Music">موسيقى</span></button>
+    </div>
+  </header>
+  <!-- Replace assets/music.mp3 with your song. Audio only plays after the visitor taps play. -->
+  <audio id="backgroundMusic" loop preload="none" src="assets/music.mp3"></audio>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="hero-glow glow-one" aria-hidden="true"></div><div class="hero-glow glow-two" aria-hidden="true"></div>
+      <div class="hero-orbit orbit-one" aria-hidden="true"></div><div class="hero-orbit orbit-two" aria-hidden="true"></div>
+      <div class="hero-sparkles" aria-hidden="true"><i>✧</i><i>✦</i><i>·</i><i>✧</i><i>·</i><i>✦</i></div>
+      <div class="hero-copy" data-parallax="0.025">
+        <span class="eyebrow"><i></i><span data-ar="النهارده مش يوم عادي" data-en="Today is no ordinary day">النهارده مش يوم عادي</span><i></i></span>
+        <p class="hero-pretitle" data-ar="لأجمل قلب عرفته" data-en="For the loveliest heart I know">لأجمل قلب عرفته</p>
+        <h1 class="hero-title"><span data-ar="كل سنة وإنتِ" data-en="Happy birthday,"></span><em data-ar="الدنيا الحلوة يا سلمى" data-en="my lovely Salma"></em></h1>
+        <p class="hero-subtitle" data-ar="مش بس صاحبتي… إنتِ أختي اللي اختارها قلبي، وحاجة حلوة في كل يوم من أيامي." data-en="Not just my best friend… you're the sister my heart chose, and the loveliest part of every day.">مش بس صاحبتي… إنتِ أختي اللي اختارها قلبي، وحاجة حلوة في كل يوم من أيامي.</p>
+        <a href="#years" class="hero-cta"><span data-ar="كمّلي المفاجأة" data-en="Keep the surprise going">كمّلي المفاجأة</span><span class="cta-arrow">↓</span></a>
+      </div>
+      <div class="hero-side-note" aria-hidden="true"><span data-ar="بحبك يا سلمى" data-en="Made with love">بحبك يا سلمى</span><i>✧</i><span data-ar="عشانك إنتِ" data-en="Just for you">عشانك إنتِ</span></div>
+      <div class="hero-bottom"><span data-ar="حكايتنا أنا وإنتِ" data-en="Our story, you and me">حكايتنا أنا وإنتِ</span><span class="scroll-line"></span><span>01 — 09</span></div>
+      <button class="hidden-heart" id="secretHeart" aria-label="قلب مخبّي" title="♡">♡</button>
+    </section>
+
+    <section class="years section-pad" id="years">
+      <div class="section-shell years-shell reveal">
+        <span class="eyebrow"><i></i><span data-ar="حكاية بتكبر كل سنة" data-en="A story growing every year">حكاية بتكبر كل سنة</span><i></i></span>
+        <div class="years-layout">
+          <div class="years-copy"><p class="section-kicker" data-ar="من يوم ما الدنيا عرّفتني عليكي…" data-en="Since the day life brought us together…">من يوم ما الدنيا عرّفتني عليكي…</p><h2 data-ar="وإنتِ بتكبري،<br>حلاوتك بتزيد." data-en="You grow a year older,<br>and somehow lovelier.">وإنتِ بتكبري،<br>حلاوتك بتزيد.</h2><p class="soft-copy" data-ar="والسنين اللي معاكي؟ دي أحلى سنين عمري." data-en="And every year with you? The best years of my life.">والسنين اللي معاكي؟ دي أحلى سنين عمري.</p></div>
+          <div class="age-card"><span class="age-label" data-ar="سنة وإنتِ مبهرة كالعادة" data-en="years of you being your wonderful self">سنة وإنتِ مبهرة كالعادة</span><strong class="age-number" data-count="20">00</strong><span class="age-caption" data-ar="وأنا محظوظ بكل سنة فيهم يا حبيبتي" data-en="And I'm lucky to share every one with you">وأنا محظوظ بكل سنة فيهم يا حبيبتي</span><span class="age-sparkle">✧</span></div>
+        </div>
+        <span class="section-index">01 <i>✦</i></span>
+      </div>
+    </section>
+
+    <section class="reasons section-pad" id="reasons">
+      <div class="section-shell">
+        <div class="section-heading reveal"><span class="eyebrow"><i></i><span data-ar="حاجات كتير بحبها فيكي" data-en="A few things I adore about you">حاجات كتير بحبها فيكي</span><i></i></span><h2 data-ar="طب أقولك إنتِ مميزة ليه؟" data-en="Let me tell you why you're special.">طب أقولك إنتِ مميزة ليه؟</h2><p data-ar="مع إن الأسباب أكتر بكتير من إننا نعدّها…" data-en="Although there are far too many reasons to count…">مع إن الأسباب أكتر بكتير من إننا نعدّها…</p></div>
+        <div class="reason-grid">
+          <article class="reason-card reveal"><span class="reason-number">01</span><span class="reason-icon">☼</span><h3 data-ar="ضحكتك" data-en="Your laugh">ضحكتك</h3><p data-ar="ضحكتك لوحدها كفاية تخلّي أي يوم وحش يبقى أحلى." data-en="Your laugh can turn even the worst day into something lovely.">ضحكتك لوحدها كفاية تخلّي أي يوم وحش يبقى أحلى.</p><span class="card-star">✧</span></article>
+          <article class="reason-card reveal"><span class="reason-number">02</span><span class="reason-icon">♡</span><h3 data-ar="قلبك الحنين" data-en="Your kind heart">قلبك الحنين</h3><p data-ar="بتحسي باللي حواليكي وبتطمني كل قلب بلمسة منك." data-en="You notice everyone around you and make every heart feel safe.">بتحسي باللي حواليكي وبتطمني كل قلب بلمسة منك.</p><span class="card-star">✧</span></article>
+          <article class="reason-card reveal"><span class="reason-number">03</span><span class="reason-icon">✦</span><h3 data-ar="جدعنتك" data-en="You're always there">جدعنتك</h3><p data-ar="وأنا عارف إن مهما حصل، هلاقيكي جنبي." data-en="No matter what happens, I know you'll be right there beside me.">وأنا عارف إن مهما حصل، هلاقيكي جنبي.</p><span class="card-star">✧</span></article>
+          <article class="reason-card reveal"><span class="reason-number">04</span><span class="reason-icon">☾</span><h3 data-ar="أمانك" data-en="Your comfort">أمانك</h3><p data-ar="وجودك في حياتي عامل زي حضن دافي في آخر يوم طويل." data-en="Having you in my life feels like a warm hug after a long day.">وجودك في حياتي عامل زي حضن دافي في آخر يوم طويل.</p><span class="card-star">✧</span></article>
+          <article class="reason-card reveal"><span class="reason-number">05</span><span class="reason-icon">❀</span><h3 data-ar="روحك الحلوة" data-en="Your lovely spirit">روحك الحلوة</h3><p data-ar="بتخلي أبسط اللحظات تبقى ذكرى نفسي أعيشها تاني." data-en="You turn the simplest moments into memories I want to live again.">بتخلي أبسط اللحظات تبقى ذكرى نفسي أعيشها تاني.</p><span class="card-star">✧</span></article>
+          <article class="reason-card reveal"><span class="reason-number">06</span><span class="reason-icon">∞</span><h3 data-ar="إنك إنتِ" data-en="Simply you">إنك إنتِ</h3><p data-ar="مش محتاجة تعملي أي حاجة… كفاية إنك موجودة، يا أختي." data-en="You don't need to do a thing… just being you is more than enough.">مش محتاجة تعملي أي حاجة… كفاية إنك موجودة، يا أختي.</p><span class="card-star">✧</span></article>
+        </div>
+        <span class="section-index">02 <i>✦</i></span>
+      </div>
+    </section>
+
+    <section class="memories section-pad" id="memories">
+      <div class="section-shell">
+        <div class="section-heading reveal"><span class="eyebrow"><i></i><span data-ar="عايزة أحكيلك عن حكايتنا" data-en="I want to tell you our story">عايزة أحكيلك عن حكايتنا</span><i></i></span><h2 data-ar="كل لحظة معاكي…<br>لسه عايشة جوايا." data-en="Every moment with you…<br>still lives in my heart.">كل لحظة معاكي…<br>لسه عايشة جوايا.</h2><p data-ar="ممكن أنسى تفاصيل، بس عمري ما أنسى إحساسي وأنا جنبك." data-en="I might forget the details, but I'll never forget how it feels to be by your side.">ممكن أنسى تفاصيل، بس عمري ما أنسى إحساسي وأنا جنبك.</p></div>
+        <div class="timeline text-timeline">
+          <article class="memory-item reveal"><div class="memory-note"><span>☼</span><small data-ar="من أول ضحكة بينا" data-en="Our first laughs">من أول ضحكة بينا</small></div><div class="memory-dot"></div><div class="memory-caption"><span class="memory-date" data-ar="حكايتنا · ٠١" data-en="Our story · 01">حكايتنا · ٠١</span><h3 data-ar="ضحكتك بتفكّ أي زعل" data-en="Your laugh fixes everything">ضحكتك بتفكّ أي زعل</h3><p data-ar="فاكرة ضحكتك اللي كانت بتهوّن أي يوم تقيل؟ أنا كل ما أفتكرها، بابتسم من غير ما أحس." data-en="Remember that laugh of yours that made every hard day feel lighter? I smile every time I think of it.">فاكرة ضحكتك اللي كانت بتهوّن أي يوم تقيل؟ أنا كل ما أفتكرها، بابتسم من غير ما أحس.</p></div></article>
+          <article class="memory-item memory-reverse reveal"><div class="memory-note"><span>♡</span><small data-ar="كل مرة احتجتلك" data-en="Every time I needed you">كل مرة احتجتلك</small></div><div class="memory-dot"></div><div class="memory-caption"><span class="memory-date" data-ar="حكايتنا · ٠٢" data-en="Our story · 02">حكايتنا · ٠٢</span><h3 data-ar="كنتِ دايمًا جنبي" data-en="You were always by my side">كنتِ دايمًا جنبي</h3><p data-ar="كل مرة كنتي جنبي وأنا محتاجك، حسّستيني إن الدنيا لسه بخير. بجد مش عارف كنت هعمل إيه من غيرك." data-en="Whenever I needed you, you reminded me the world was still okay. Honestly, I don't know what I'd do without you.">كل مرة كنتي جنبي وأنا محتاجك، حسّستيني إن الدنيا لسه بخير. بجد مش عارف كنت هعمل إيه من غيرك.</p></div></article>
+          <article class="memory-item reveal"><div class="memory-note"><span>✧</span><small data-ar="وكل أيامنا الجاية" data-en="All our days ahead">وكل أيامنا الجاية</small></div><div class="memory-dot"></div><div class="memory-caption"><span class="memory-date" data-ar="حكايتنا · مستمرة" data-en="Our story · ongoing">حكايتنا · مستمرة</span><h3 data-ar="مستني حكاياتنا اللي جاية" data-en="I can't wait for what's next">مستني حكاياتنا اللي جاية</h3><p data-ar="نفسي أفضل أعمل معاكي ذكريات تضحكنا، وأفضل جنبك في كل مغامرة… عشان طول ما إنتِ معايا، كل حاجة بتحلى." data-en="I want to keep making memories with you and be by your side for every adventure… everything's better with you.">نفسي أفضل أعمل معاكي ذكريات تضحكنا، وأفضل جنبك في كل مغامرة… عشان طول ما إنتِ معايا، كل حاجة بتحلى.</p></div></article>
+        </div>
+        <span class="section-index">03 <i>✦</i></span>
+      </div>
+    </section>
+
+    <section class="promises-section section-pad" id="promises">
+      <div class="section-shell"><div class="section-heading reveal"><span class="eyebrow"><i></i><span data-ar="وعود صغيرة للسنة الجديدة" data-en="Little promises for your new year">وعود صغيرة للسنة الجديدة</span><i></i></span><h2 data-ar="لسه علينا حاجات حلوة كتير." data-en="We still have so many lovely things ahead.">لسه علينا حاجات حلوة كتير.</h2><p data-ar="دوسي على كل كارت… وديكي وعد من قلبي." data-en="Tap each card… there's a little promise inside.">دوسي على كل كارت… وديكي وعد من قلبي.</p></div>
+        <div class="promise-grid">
+          <button class="promise-card reveal" type="button" aria-pressed="false"><span class="promise-card-inner"><span class="promise-face promise-front"><i>☼</i><strong data-ar="ضحك من القلب" data-en="Laugh until it hurts">ضحك من القلب</strong><small data-ar="دوسي واكتشفي وعدي ليكي" data-en="Tap to reveal my promise">دوسي واكتشفي وعدي ليكي</small></span><span class="promise-face promise-back" data-ar="وعد نفضل نضحك سوا على أتفه حاجة… ونضحك أكتر لما نفتكر إننا ضحكنا عليها." data-en="I promise we'll keep laughing at the silliest things… and laugh even harder remembering them.">وعد نفضل نضحك سوا على أتفه حاجة… ونضحك أكتر لما نفتكر إننا ضحكنا عليها.</span></span></button>
+          <button class="promise-card reveal" type="button" aria-pressed="false"><span class="promise-card-inner"><span class="promise-face promise-front"><i>✦</i><strong data-ar="مغامرة جديدة" data-en="A new adventure">مغامرة جديدة</strong><small data-ar="دوسي واكتشفي وعدي ليكي" data-en="Tap to reveal my promise">دوسي واكتشفي وعدي ليكي</small></span><span class="promise-face promise-back" data-ar="وعد نعمل ذكرى جديدة كل ما نقول: يلا نجرب حاجة عمرنا ما عملناها." data-en="I promise we'll make a new memory every time we say: let's try something we've never done.">وعد نعمل ذكرى جديدة كل ما نقول: يلا نجرب حاجة عمرنا ما عملناها.</span></span></button>
+          <button class="promise-card reveal" type="button" aria-pressed="false"><span class="promise-card-inner"><span class="promise-face promise-front"><i>☾</i><strong data-ar="رغي لحد متأخر" data-en="Late-night talks">رغي لحد متأخر</strong><small data-ar="دوسي واكتشفي وعدي ليكي" data-en="Tap to reveal my promise">دوسي واكتشفي وعدي ليكي</small></span><span class="promise-face promise-back" data-ar="وعد أفضل دايمًا أسمعك… حتى لو الحكاية بدأت بـ: مش هطوّل عليكي." data-en="I promise I'll always listen… even when the story starts with: I'll be quick.">وعد أفضل دايمًا أسمعك… حتى لو الحكاية بدأت بـ: مش هطوّل عليكي.</span></span></button>
+          <button class="promise-card reveal" type="button" aria-pressed="false"><span class="promise-card-inner"><span class="promise-face promise-front"><i>♡</i><strong data-ar="سند مهما حصل" data-en="Always in your corner">سند مهما حصل</strong><small data-ar="دوسي واكتشفي وعدي ليكي" data-en="Tap to reveal my promise">دوسي واكتشفي وعدي ليكي</small></span><span class="promise-face promise-back" data-ar="وعد تفضلي عارفة إن ليكي أخ بيحبك، فخور بيكي، وجنبك في كل خطوة." data-en="I promise you'll always have a brother who loves you, is proud of you, and stands beside you.">وعد تفضلي عارفة إن ليكي أخ بيحبك، فخور بيكي، وجنبك في كل خطوة.</span></span></button>
+        </div>
+        <span class="section-index">04 <i>✦</i></span></div>
+    </section>
+
+    <section class="surprise section-pad" id="surprise">
+      <div class="section-shell surprise-shell reveal"><span class="eyebrow"><i></i><span data-ar="يلا… جه وقت الأمنية" data-en="Okay… it's wish time">يلا… جه وقت الأمنية</span><i></i></span><h2 data-ar="اقفلي عينيكي… واتمني." data-en="Close your eyes… and make a wish.">اقفلي عينيكي… واتمني.</h2><p data-ar="دي تورتتك يا حبيبتي، بس الأول لازم نطفي الشمع سوا." data-en="Your very own birthday cake, my love. Let's blow out the candles together.">دي تورتتك يا حبيبتي، بس الأول لازم نطفي الشمع سوا.</p>
+        <div class="cake-stage"><div class="cake-spark cake-spark-a">✧</div><div class="cake-spark cake-spark-b">✦</div><div class="cake" id="cake" role="img" aria-label="Birthday cake with candles"><div class="candle-row"><span class="candle"><i></i><b></b></span><span class="candle"><i></i><b></b></span><span class="candle"><i></i><b></b></span><span class="candle"><i></i><b></b></span><span class="candle"><i></i><b></b></span></div><div class="cake-top"></div><div class="cake-middle"><span>♡</span></div><div class="cake-bottom"></div><div class="cake-plate"></div></div></div>
+        <div class="surprise-actions"><button class="pill-button" id="blowCandles"><span>✧</span><span data-ar="اطفي الشمع يا سلمى" data-en="Blow out the candles">اطفي الشمع يا سلمى</span></button><button class="pill-button pill-ghost" id="makeWish"><span>♡</span><span data-ar="اتمني أمنية" data-en="Make a wish">اتمني أمنية</span></button></div><p class="surprise-hint" id="surpriseHint" data-ar="خدي نفس كبير… واطفيهم كلهم!" data-en="Take a deep breath… and blow them all out!">خدي نفس كبير… واطفيهم كلهم!</p>
+        <span class="section-index">05 <i>✦</i></span></div>
+    </section>
+
+    <section class="letter-section section-pad" id="letter">
+      <div class="section-shell"><div class="section-heading reveal"><span class="eyebrow"><i></i><span data-ar="من قلبي ليكي" data-en="A little note from my heart">من قلبي ليكي</span><i></i></span><h2 data-ar="كلمتين يمكن ما بقولهمش كفاية." data-en="A few words I don't say often enough.">كلمتين يمكن ما بقولهمش كفاية.</h2></div>
+        <div class="letter-wrap reveal"><div class="letter-ornament">✦　♡　✦</div><div class="envelope-flap"></div><article class="letter-card"><span class="letter-to" data-ar="يا سلمى حبيبتي…" data-en="My darling Salma…">يا سلمى حبيبتي…</span><p class="letter-text" id="letterText" data-ar="كل سنة وإنتِ طيبة يا أحنّ وأجمل أخت اختارها قلبي. مش عارف أبدأ منين، عشان مهما حكيت مش هعرف أوصف إنتِ غالية عليّا قد إيه. وجودك في حياتي مش حاجة عادية؛ إنتِ الضحكة وقت الزعل، والأمان وقت الخوف، والصوت اللي عارف إنه هيفضل جنبي مهما الدنيا اتغيّرت.\n\nشكرًا على كل مرة سمعتيلي فيها، وكل مرة ضحكتيني من قلبي، وكل ذكرى حلوة خلّيتيها أحلى بمجرد ما كنتِ فيها. نفسي سنتك الجديدة تبقى شبه قلبك: جميلة، دافية، ومليانة حاجات تفرّحك.\n\nبحبك حب ما يتوصفش، واللي بينّا عندي أغلى من أي كلام. يا رب أفضل أحتفل بيكي وبوجودك في حياتي كل سنة، العمر كله.\n\nكل سنة وإنتِ أختي وصاحبتي وحبيبتي… وأحلى هدية جتلي من الدنيا.\n\nبحبك دايمًا،" data-en="Happy birthday to the kindest, loveliest sister my heart ever chose. I don't quite know where to begin, because no words could ever explain how much you mean to me. Having you in my life isn't an ordinary thing; you're the laugh when I'm sad, the safe place when I'm afraid, and the voice I know will stay beside me no matter how much the world changes.\n\nThank you for every time you listened, every time you made me laugh from the heart, and every beautiful memory made brighter just because you were there. I hope your new year feels just like your heart: beautiful, warm, and full of things that make you happy.\n\nI love you more than words could ever say. What we have is more precious to me than anything. I hope I get to celebrate you and your place in my life every year, for a lifetime.\n\nHappy birthday to my sister, my best friend, my darling… and the loveliest gift life ever gave me.\n\nAlways yours,"></p><span class="letter-signature" id="signature" data-ar="بكل حبي، أخوك للأبد" data-en="All my love, your brother forever">بكل حبي، أخوك للأبد</span></article><span class="letter-seal">♡</span></div>
+        <span class="section-index">06 <i>✦</i></span></div>
+    </section>
+
+    <section class="closing" id="closing"><div class="closing-stars" aria-hidden="true"></div><div class="closing-glow"></div><div class="closing-content reveal"><span class="closing-overline" data-ar="وآخر حاجة…" data-en="And one last thing…">وآخر حاجة…</span><div class="closing-heart" aria-hidden="true">♡</div><h2 data-ar="بحبك دايمًا،<br>يا أختي اللي اختارها قلبي." data-en="Love you always,<br>my chosen sister.">بحبك دايمًا،<br>يا أختي اللي اختارها قلبي.</h2><p class="closing-sign" id="closingSign" data-ar="من أخوك اللي بيحبك أوي" data-en="From your brother, who loves you endlessly">من أخوك اللي بيحبك أوي</p><button class="replay-button" id="replay"><span>↻</span><span data-ar="عيدي المفاجأة من الأول" data-en="Replay the surprise">عيدي المفاجأة من الأول</span></button></div><span class="closing-footnote" data-ar="اتعمّلت بحب، عشانك إنتِ وبس." data-en="Made with love, just for you.">اتعمّلت بحب، عشانك إنتِ وبس.</span></section>
+  </main>
+
+  <div class="secret-modal" id="secretModal" role="dialog" aria-modal="true"><button id="secretClose" class="secret-close" aria-label="إغلاق">×</button><span>♡</span><p data-ar="بالمناسبة… لو رجع بيا الزمن، هختار أكون أخوكي وصاحبك في كل مرة. بحبك أكتر ما تعرفي يا سلمى." data-en="By the way… if I could go back, I'd choose to be your brother and best friend every single time. I love you more than you know, Salma.">بالمناسبة… لو رجع بيا الزمن، هختار أكون أخوكي وصاحبك في كل مرة. بحبك أكتر ما تعرفي يا سلمى.</p></div>
+</body>
+</html>
